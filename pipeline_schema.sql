@@ -42,3 +42,19 @@ CREATE TABLE final_output (
     improvement_tips TEXT,
     FOREIGN KEY(input_id) REFERENCES inputs(id)
 );
+
+-- Create Tags Table
+CREATE TABLE tags (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    name TEXT UNIQUE NOT NULL
+);
+
+-- Create Input-Tags Association Table
+CREATE TABLE input_tags (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    input_id INTEGER NOT NULL,
+    tag_id INTEGER NOT NULL,
+    FOREIGN KEY(input_id) REFERENCES inputs(id),
+    FOREIGN KEY(tag_id) REFERENCES tags(id),
+    UNIQUE(input_id, tag_id) -- Ensure each tag is only linked once to a specific input
+);

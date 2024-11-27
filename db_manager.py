@@ -98,7 +98,6 @@ def delete_input(input_id):
 # Example Usage
 if __name__ == "__main__":
     # Initialize database
-    """
     
     initialize_database()
 
@@ -126,6 +125,6 @@ if __name__ == "__main__":
 
     final_output_id = insert_final_output(input_id, "def final(): return 'Success'", "Well-optimized code", "Consider adding more documentation")
     print(f"Inserted Final Output ID: {final_output_id}")
-    """
+    
     # Deletion example
     delete_input(1)
