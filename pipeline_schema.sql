@@ -29,6 +29,7 @@ CREATE TABLE evaluation_results (
     formal_verification_results JSON,
     final_scores JSON,
     FOREIGN KEY(input_id) REFERENCES inputs(id)
+    FOREIGN KEY(generated_code_id) REFERENCES generated_code(id)
 );
 
 -- Create Final Output Table
