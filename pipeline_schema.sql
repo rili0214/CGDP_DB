@@ -24,12 +24,11 @@ CREATE TABLE evaluation_results (
     input_id INTEGER NOT NULL,
     generated_code_id INTEGER NOT NULL,
     timestamp TEXT NOT NULL,
-    static_analysis_results TEXT,
-    dynamic_analysis_results TEXT,
-    rankme_score REAL,
-    formal_verification_results TEXT,
-    FOREIGN KEY(input_id) REFERENCES inputs(id),
-    FOREIGN KEY(generated_code_id) REFERENCES generated_code(id)
+    static_analysis_results JSON,
+    dynamic_analysis_results JSON,
+    formal_verification_results JSON,
+    final_scores JSON,
+    FOREIGN KEY(input_id) REFERENCES inputs(id)
 );
 
 -- Create Final Output Table
