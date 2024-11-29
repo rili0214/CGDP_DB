@@ -28,7 +28,7 @@ CREATE TABLE evaluation_results (
     dynamic_analysis_results JSON,
     formal_verification_results JSON,
     final_scores JSON,
-    FOREIGN KEY(input_id) REFERENCES inputs(id)
+    FOREIGN KEY(input_id) REFERENCES inputs(id),
     FOREIGN KEY(generated_code_id) REFERENCES generated_code(id)
 );
 
@@ -37,9 +37,7 @@ CREATE TABLE final_output (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
     input_id INTEGER NOT NULL,
     timestamp TEXT NOT NULL,
-    feedback_code TEXT NOT NULL,
-    evaluation_summary TEXT,
-    improvement_tips TEXT,
+    report_text TEXT,
     FOREIGN KEY(input_id) REFERENCES inputs(id)
 );
 
